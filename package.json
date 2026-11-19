@@ -1,0 +1,30 @@
+{
+  "name": "shiftbid-promo-video",
+  "version": "1.0.0",
+  "description": "Cinematic promotional video for SHIFTBID 6100",
+  "private": true,
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render --concurrency=1 ShiftBidPromoVideo out/shiftbid-promo.mp4",
+    "build:preview": "remotion render --concurrency=1 ShiftBidPromoPreview out/shiftbid-promo-preview.mp4",
+    "still": "remotion still ShiftBidPromoVideo out/frame.png --frame=1800",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/player": "^4.0.0",
+    "@remotion/zod-types": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config": "^4.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "remotionRoot": "src"
+}
