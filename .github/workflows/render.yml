@@ -27,7 +27,7 @@ jobs:
 
       - name: Render video (90 seconds, 1080p)
         run: |
-  npx remotion render --concurrency=1 ShiftBidPromoVideo out/shiftbid-promo.mp4
+          npx remotion render --concurrency=1 ShiftBidPromoVideo out/shiftbid-promo.mp4
         env:
           NODE_OPTIONS: --max-old-space-size=12288
 
