@@ -6,7 +6,7 @@ on:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,7 +27,7 @@ jobs:
 
       - name: Render video (90 seconds, 1080p)
         run: |
-          npx remotion render --concurrency=2 ShiftBidPromoVideo out/shiftbid-promo.mp4
+  npx remotion render --concurrency=1 ShiftBidPromoVideo out/shiftbid-promo.mp4
         env:
           NODE_OPTIONS: --max-old-space-size=12288
 
