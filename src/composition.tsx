@@ -19,10 +19,10 @@ const AllCompositions = () => {
       <Composition
         id="ShiftBidPromoPreview"
         component={ShiftBidPromoVideo}
-        durationInFrames={900} // 30 seconds at 30fps
+        durationInFrames={2700} // 90 seconds at 30fps (was 900)
         fps={30}
-        width={854}
-        height={480}
+        width={1280}   // 720p (was 854)
+        height={720}   // 720p (was 480)
         defaultProps={{
           preview: true,
         }}
@@ -58,10 +58,10 @@ export const ShiftBidPromoPreview = () => (
   <Composition
     id="ShiftBidPromoPreview"
     component={ShiftBidPromoVideo}
-    durationInFrames={900}
+    durationInFrames={2700}  // 90s
     fps={30}
-    width={1920}
-    height={1080}
+    width={1280}   // 720p
+    height={720}   // 720p
     defaultProps={{ preview: true }}
   />
 );

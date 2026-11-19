@@ -25,9 +25,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
-      - name: Render video (90 seconds, 1080p)
+            - name: Render video (90 seconds, 720p)
         run: |
-          npx remotion render --concurrency=1 ShiftBidPromoVideo out/shiftbid-promo.mp4
+          npx remotion render --concurrency=1 ShiftBidPromoPreview out/shiftbid-promo.mp4
         env:
           NODE_OPTIONS: --max-old-space-size=12288
 
