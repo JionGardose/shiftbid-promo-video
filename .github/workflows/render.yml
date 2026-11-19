@@ -26,15 +26,10 @@ jobs:
           sudo apt-get install -y google-chrome-stable
 
       - name: Render video (90 seconds, 1080p)
-        uses: remotion/github-action@v4
-        with:
-          composition: ShiftBidPromoVideo
-          serve-url: http://localhost:3000
-          output: out/shiftbid-promo.mp4
-          concurrency: 2
-          chromium-memory: 12288
-          env: |
-            NODE_OPTIONS=--max-old-space-size=12288
+        run: |
+          npx remotion render --concurrency=2 ShiftBidPromoVideo out/shiftbid-promo.mp4
+        env:
+          NODE_OPTIONS: --max-old-space-size=12288
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
