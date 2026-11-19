@@ -1,1 +1,44 @@
-﻿
+﻿name: Render SHIFTBID 6100 Promo Video
+
+on:
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Render video (90 seconds, 1080p)
+        uses: remotion/github-action@v4
+        with:
+          composition: ShiftBidPromoVideo
+          serve-url: http://localhost:3000
+          output: out/shiftbid-promo.mp4
+          concurrency: 2
+          chromium-memory: 12288
+          env: |
+            NODE_OPTIONS=--max-old-space-size=12288
+
+      - name: Upload video artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shiftbid-promo-video
+          path: out/shiftbid-promo.mp4
+          retention-days: 30
